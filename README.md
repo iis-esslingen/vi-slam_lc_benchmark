@@ -1,4 +1,3 @@
-# vi-slam_lc_benchmark
 
 <h1 align="center">
   Visual‐Inertial SLAM for Unstructured Outdoor Robotics: Benchmarking the Benefits and Computational Costs of Loop Closing
