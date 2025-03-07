@@ -1,0 +1,51 @@
+FROM nvidia/cuda:11.6.1-cudnn8-devel-ubuntu20.04
+
+SHELL ["/bin/bash", "-c"]
+
+WORKDIR /workspace/catkin_ws
+
+RUN apt-get update && apt-get install -y \
+    lsb-release \
+    python3-pip \
+    wget \
+    git \
+    curl
+
+# Set non-interactive mode to avoid prompts
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Set locale, timezone, and keyboard layout
+RUN apt-get update && apt-get install -y locales && \
+    locale-gen en_US.UTF-8 && \
+    update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 && \
+    apt-get install -y tzdata keyboard-configuration && \
+    ln -fs /usr/share/zoneinfo/Europe/Berlin /etc/localtime && \
+    echo "Europe/Berlin" > /etc/timezone && \
+    dpkg-reconfigure -f noninteractive tzdata && \
+    echo 'keyboard-configuration keyboard-configuration/layout select German' | debconf-set-selections && \
+    echo 'keyboard-configuration keyboard-configuration/variant select German' | debconf-set-selections && \
+    dpkg-reconfigure -f noninteractive keyboard-configuration
+
+# Install ROS Noetic and dependencies
+RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' && \
+    apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654 && \
+    apt-get update && \
+    apt-get install -y ros-noetic-desktop-full python3-catkin-tools python3-osrf-pycommon \
+    libeigen3-dev libboost-all-dev libceres-dev && \
+    echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+
+# Reset the interactive mode
+ENV DEBIAN_FRONTEND=
+
+RUN pip3 install \
+    torch==1.12.1+cu116 \
+    torchvision==0.13.1+cu116 \
+    torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu116 \
+    scipy
+
+RUN wget https://download.pytorch.org/libtorch/cu116/libtorch-cxx11-abi-shared-with-deps-1.12.1%2Bcu116.zip && \
+    unzip libtorch-cxx11-abi-shared-with-deps-1.12.1+cu116.zip -d /workspace
+    
+RUN mkdir -p /workspace/catkin_ws/src
+
+WORKDIR /workspace/catkin_ws
