@@ -208,12 +208,14 @@ Coming soon.
 ## Citing
 If you find our work useful, please consider citing:
 ```bibtex
-@article{schmidt2024vislam,
-  title={Visual-Inertial SLAM for Agricultural Robotics: Benchmarking the Benefits and Computational Costs of Loop Closing},
+@article{schmidt2025visual,
+  title={Visual-Inertial SLAM for Unstructured Outdoor Environments: Benchmarking the Benefits and Computational Costs of Loop Closing},
   author={Schmidt, Fabian and Blessing, Constantin and Enzweiler, Markus and Valada, Abhinav},
-  journal={arXiv preprint arXiv:2408.01716},
-  year={2024}
+  journal={Journal of Field Robotics},
+  year={2025},
+  publisher={Wiley Online Library}
 }
+
 
 ```
 and the dataset used:
