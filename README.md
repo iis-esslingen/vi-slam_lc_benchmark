@@ -21,7 +21,7 @@ When running the Dockerfiles, the first step is to navigate to the directory whe
 Tested on 22.04 with CUDA 11.7, using NVIDIA A6000.
 
 ## Data
-The data is a subset of the [ROVER dataset](https://iis-esslingen.github.io/rover/) and can be found [here](https://bwsyncandshare.kit.edu/s/LjgtPGkNgfgxcfA).
+The data is a subset of the [ROVER dataset](https://iis-esslingen.github.io/rover/) and can be found [here](https://fdm.hs-esslingen.de/schmidt2025visual/).
 
 ## SLAM Methods
 Each method is available as a Docker container. When running the Dockerfiles, the first step is to enter the directory where the dataset is stored, as it will be mounted inside the Docker container.
