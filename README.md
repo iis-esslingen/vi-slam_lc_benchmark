@@ -2,6 +2,7 @@
 <h1 align="center">
   Visual‐Inertial SLAM for Unstructured Outdoor Robotics: Benchmarking the Benefits and Computational Costs of Loop Closing
 
+  [![Wiley](https://img.shields.io/badge/Wiley-Online-blue.svg?style=plastic)](https://onlinelibrary.wiley.com/doi/10.1002/rob.22581)
   [![arXiv](https://img.shields.io/badge/arXiv-2408.01716-b31b1b.svg?style=plastic)](https://arxiv.org/abs/2408.01716)
   
 </h1>
