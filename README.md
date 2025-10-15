@@ -213,8 +213,12 @@ If you find our work useful, please consider citing:
   author={Schmidt, Fabian and Blessing, Constantin and Enzweiler, Markus and Valada, Abhinav},
   journal={Journal of Field Robotics},
   year={2025},
+  volume={42},
+  number={7},
+  pages={3726-3747},
   doi={10.1002/rob.22581},
-  publisher={Wiley Online Library}}
+  publisher={Wiley Online Library}
+}
 
 ```
 and the dataset used:
